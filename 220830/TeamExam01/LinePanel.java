@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class LinePanel extends JPanel implements MouseListener{
 	Scanner sc = new Scanner(System.in);
-	private int x1,x2,y1,y2,xr,yr;
+	private int x1,x2,y1,y2;
 	
 	public LinePanel() {
 		addMouseListener(this);
