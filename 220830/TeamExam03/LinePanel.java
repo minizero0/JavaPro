@@ -30,8 +30,9 @@ public class LinePanel extends JPanel implements MouseListener{
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		
-		if(a == 0) 
+		if(a == 0) {
 			g.drawLine(x1, y1, x2, y2);
+		}
 		else if(a == 1)
 			g.drawOval(x1, y1, x2-x1, y2-y1);
 		else if(a == 2)
@@ -61,6 +62,7 @@ public class LinePanel extends JPanel implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		x2 = e.getX();
 		y2 = e.getY();
+		list.add(new GraphicInfo(x1, y1, x2, y2));
 		repaint();
 	}
 
