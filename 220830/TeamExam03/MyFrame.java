@@ -1,10 +1,7 @@
 package TeamExam03;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -18,11 +15,12 @@ public class MyFrame extends JFrame {
 		add(lp);
 		
 		JMenuBar jmb = new JMenuBar();
-		JMenu file = new JMenu("파일");
-		JMenuItem file_new = new JMenuItem("도형");
-		JMenuItem file_open = new JMenuItem("선");
-		JMenuItem file_save = new JMenuItem("원");
-		JMenuItem file_exit = new JMenuItem("사각형");
+		JMenu file = new JMenu("도형");
+		JMenuItem file_new = new JMenuItem("새파일");
+		JMenuItem file_line = new JMenuItem("선");
+		JMenuItem file_circle = new JMenuItem("원");
+		JMenuItem file_reck = new JMenuItem("사각형");
+		JMenuItem file_exit = new JMenuItem("종료");
 		
 		file_new.addActionListener(new ActionListener() {
 			
@@ -32,7 +30,7 @@ public class MyFrame extends JFrame {
 				
 			}
 		});
-		file_open.addActionListener(new ActionListener() {
+		file_line.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -40,17 +38,19 @@ public class MyFrame extends JFrame {
 				
 			}
 		});
-		file_save.addActionListener(new ActionListener() {
+		file_circle.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					ObjectInputStream ois = new ObjectInputStream(new FileInputStream("my.pan"));
-					
-				}catch(Exception ex) {
-					System.out.println("예외발생 : " + ex.getMessage());
-				}
+				lp.hs.add(0);
 				
+			}
+		});
+		file_reck.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				lp.hs.add(1);
 			}
 		});
 		file_exit.addActionListener(new ActionListener() {
@@ -60,7 +60,15 @@ public class MyFrame extends JFrame {
 				System.exit(0);
 			}
 		});
+		file.add(file_new);
+		file.add(file_line);
+		file.add(file_reck);
+		file.add(file_circle);
+		file.add(file_exit);
 		
+		jmb.add(file);
+		
+		setJMenuBar(jmb);
 		setSize(400,300);
 		setVisible(true);
 	}

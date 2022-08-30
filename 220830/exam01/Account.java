@@ -6,10 +6,8 @@ public class Account {
 	public synchronized void deposit(int amount) {
 		balance += amount;
 	}
-
+	
 	public int getBalance() {
 		return balance;
 	}
-	
-	
 }
