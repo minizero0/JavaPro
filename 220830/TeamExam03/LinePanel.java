@@ -15,28 +15,29 @@ import exam07.GraphicInfo;
 
 public class LinePanel extends JPanel implements MouseListener{
 	Scanner sc = new Scanner(System.in);
-	private int x1,x2,y1,y2;
-	HashSet<Integer> hs;
+	private int x1,x2,y1,y2,a;
 	ArrayList<GraphicInfo> list;
 	
 	public LinePanel() {
 		addMouseListener(this);
 		list = new ArrayList<GraphicInfo>();
-		hs = new HashSet<Integer>();
 	}
-	
+	public void setA(int a) {
+		this.a = a;
+	}
 	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
-		Iterator<Integer> iter = hs.iterator();
 		
-		while(iter.hasNext()) {
-			switch (iter.next()) {
-				case 0:g.drawOval(x1, y1, x2-x1, y2-y1);
-				case 1:g.drawRect(x1, y1, x2-x1, y2-y1);
-			}
-		}
+		if(a == 0) 
+			g.drawLine(x1, y1, x2, y2);
+		else if(a == 1)
+			g.drawOval(x1, y1, x2-x1, y2-y1);
+		else if(a == 2)
+			g.drawRect(x1, y1, x2-x1, y2-y1);
+		
+		System.out.println(a);
 		
 //		g.drawRect(x1, y1, 100, 200);
 		

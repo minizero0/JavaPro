@@ -16,6 +16,7 @@ public class LinePanel extends JPanel implements MouseListener{
 		addMouseListener(this);
 	}
 	
+	
 	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub

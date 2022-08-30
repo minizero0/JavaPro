@@ -34,7 +34,7 @@ public class MyFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				lp.setA(0);
 				
 			}
 		});
@@ -42,7 +42,7 @@ public class MyFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				lp.hs.add(0);
+				lp.setA(1);
 				
 			}
 		});
@@ -50,7 +50,7 @@ public class MyFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				lp.hs.add(1);
+				lp.setA(2);
 			}
 		});
 		file_exit.addActionListener(new ActionListener() {
