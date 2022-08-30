@@ -21,9 +21,7 @@ public class LinePanel extends JPanel implements MouseListener{
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		g.drawOval(x1, y1, x2-x1, y2-y1);
-		
 	}
-	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
