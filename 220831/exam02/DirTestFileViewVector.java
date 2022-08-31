@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,22 +17,24 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class DirTestFileView extends JFrame{
+public class DirTestFileViewVector extends JFrame{
 	
 	private JList<String> list;
 	private JTextArea jta;
+	Vector<String> vector;
 	
-	public DirTestFileView() {
+	public DirTestFileViewVector() {
 		setLayout(new BorderLayout());
 		jta = new JTextArea();
+		vector = new Vector<String>();
 		JScrollPane jsp = new JScrollPane(jta);
 		
-		
-		 
 		File dir = new File("/Users/mini0/Desktop/SsangYong220810"); 
-		
 		String data[] = dir.list();
-		list = new JList<String>(data);
+		for (String fname:data) {
+			vector.add(fname);
+		}
+		list = new JList<String>(vector);
 		
 		list.addMouseListener(new MouseListener() {
 			
@@ -101,6 +104,15 @@ public class DirTestFileView extends JFrame{
 					file.delete();
 					
 					JOptionPane.showMessageDialog(null, "선택한 파일이 삭제되었습니다.");
+					
+					vector.clear();
+					File dir = new File("/Users/mini0/Desktop/SsangYong220810");
+					String arr[] = dir.list();
+					for(String name:arr) {
+						vector.add(name);
+					}
+					list.updateUI();
+					jta.setText("");
 				}
 			}
 		});
