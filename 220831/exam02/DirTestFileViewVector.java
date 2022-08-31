@@ -123,7 +123,7 @@ public class DirTestFileViewVector extends JFrame{
 	}
 
 	public static void main(String[] args) {
-		new DirTestFileView();
+		new DirTestFileViewVector();
 	}
 
 }
