@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 public class DrawPanel extends JPanel implements MouseListener{
 	private int x1,x2,y1,y2;
+	int drawType;		//접근명시자 생략시 같은 패키지내에 공유 허용
 
 	public DrawPanel() {
 		addMouseListener(this);
@@ -24,7 +25,17 @@ public class DrawPanel extends JPanel implements MouseListener{
 		int height = y2-y1;
 		int x = x1;
 		int y = y1;
-		g.drawRect(x, y, width, height);
+		
+		if(x1>x2) {
+			width = x1 - x2;
+			x = x2;
+		}
+		if(y1>y2) {
+			height = y1 - y2;
+			y = y2;
+		}
+//		g.drawRect(x, y, width, height);
+		g.drawOval(x, y, width, height);
 	}
 
 	@Override
