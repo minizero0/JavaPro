@@ -1,5 +1,6 @@
 package exam01;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -55,7 +56,7 @@ public class MyFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dp.color = 0;
+				dp.drawColor = Color.red;
 				
 			}
 		});
@@ -63,7 +64,7 @@ public class MyFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dp.color = 1;
+				dp.drawColor = Color.green;
 				
 			}
 		});
@@ -71,7 +72,7 @@ public class MyFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dp.color = 2;
+				dp.drawColor = Color.blue;
 				
 			}
 		});
@@ -79,7 +80,7 @@ public class MyFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dp.color = 3;
+				dp.drawColor = Color.black;
 				
 			}
 		});
