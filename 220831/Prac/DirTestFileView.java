@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class DirTestFileView extends JFrame{
+class DirTestFileView extends JFrame{
 	private JList<String> list;
 	private JTextArea jta;
 	
@@ -26,7 +26,6 @@ public class DirTestFileView extends JFrame{
 		JScrollPane jsp = new JScrollPane(jta);
 		
 		File dir = new File("/Users/mini0/Desktop/SsangYong220810");
-		
 		String data[] = dir.list();
 		list = new JList<String>(data);
 		
@@ -35,6 +34,7 @@ public class DirTestFileView extends JFrame{
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				String fname = list.getSelectedValue();
+				
 				try {
 					FileReader fr = new FileReader("/Users/mini0/Desktop/SsangYong220810/" + fname);
 					int ch;
@@ -78,26 +78,26 @@ public class DirTestFileView extends JFrame{
 		p_center.add(jsp_list, BorderLayout.WEST);
 		p_center.add(jsp, BorderLayout.CENTER);
 		
+		
 		JButton btn_delete = new JButton("파일 삭제");
-		add(p_center, BorderLayout.CENTER);
 		p_center.add(btn_delete, BorderLayout.SOUTH);
+		add(p_center, BorderLayout.CENTER);
 		
 		btn_delete.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int re = JOptionPane.showConfirmDialog(null, "파일 삭제할거야?");
+				int re = JOptionPane.showConfirmDialog(null, "파일삭제?");
 				if (re == 0) {
 					try {
 						String fname = list.getSelectedValue();
-						File file = new File("/Users/mini0/Desktop/SsangYong220810/" + fname);
+						File file = new File("/Users/mini0/Desktop/SsangYong220810/"+fname);
 						file.delete();
-						JOptionPane.showMessageDialog(null, "삭제 성공");
+						JOptionPane.showMessageDialog(null, "성공적으로 삭제");
 					}catch(Exception ex) {
 						System.out.println(ex.getMessage());
 					}
 				}
-				
 				
 			}
 		});
@@ -105,10 +105,9 @@ public class DirTestFileView extends JFrame{
 		setSize(300,400);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}
-	public static void main(String[] args) {
+	
+	public static void main(String args[]) {
 		new DirTestFileView();
 	}
-
 }
