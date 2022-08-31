@@ -21,13 +21,11 @@ public class ConcatTest {
 				str += (char)ch;
 			}
 			
-			int ch1;
-			String str1 = "";
-			while((ch1 = fr2.read()) != -1) {
-				str1 += (char)ch1;
+			while((ch = fr2.read()) != -1) {
+				str += (char)ch;
 			}
+			fw.write(str);
 			
-			fw.write(str + str1);
 			
 			fr1.close();
 			fr2.close();
