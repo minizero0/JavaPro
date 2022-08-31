@@ -19,14 +19,55 @@ public class MyFrame extends JFrame{
 		
 		JMenuBar jmb = new JMenuBar();
 		JMenu draw = new JMenu("그리기 도구");
-		JMenu draw_Color = new JMenu("그리기 색상");
+		
 		JMenuItem draw_line = new JMenuItem("선");
 		JMenuItem draw_rect = new JMenuItem("사각형");
 		JMenuItem draw_oval = new JMenuItem("원");
+		
+		JMenu draw_Color = new JMenu("그리기 색상");
 		JMenuItem draw_red = new JMenuItem("빨강");
 		JMenuItem draw_green = new JMenuItem("초록");
 		JMenuItem draw_blue = new JMenuItem("파랑");
 		JMenuItem draw_black = new JMenuItem("검정");
+		
+		JMenu file = new JMenu("파일");
+		JMenuItem file_new = new JMenuItem("새파일");
+		JMenuItem file_open = new JMenuItem("열기");
+		JMenuItem file_save = new JMenuItem("저장");
+		JMenuItem file_exit = new JMenuItem("종료");
+		
+		file_new.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		file_open.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		file_save.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		file_exit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		draw_line.addActionListener(new ActionListener() {
 			
@@ -96,8 +137,14 @@ public class MyFrame extends JFrame{
 		draw_Color.add(draw_green);
 		draw_Color.add(draw_blue);
 		draw_Color.add(draw_black);
-		
 		jmb.add(draw_Color);
+		
+		file.add(file_new);
+		file.add(file_open);
+		file.add(file_save);
+		file.add(file_exit);
+		jmb.add(file);
+	
 		
 		setJMenuBar(jmb);
 		
