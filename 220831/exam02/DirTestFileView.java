@@ -22,7 +22,7 @@ public class DirTestFileView extends JFrame{
 		jta = new JTextArea();
 		JScrollPane jsp = new JScrollPane(jta);
 		 
-		File dir = new File("/Users/mini0/eclipse-workspace/JavaProgramming/src/SsangYong220810"); 
+		File dir = new File("/Users/mini0/Desktop/SsangYong220810"); 
 		
 		String data[] = dir.list();
 		list = new JList<String>(data);
@@ -35,7 +35,7 @@ public class DirTestFileView extends JFrame{
 				String fname = list.getSelectedValue();
 				
 				try {
-					FileReader fr = new FileReader("/Users/mini0/eclipse-workspace/JavaProgramming/src/SsangYong220810/" +fname);
+					FileReader fr = new FileReader("/Users/mini0/Desktop/SsangYong220810/" +fname);
 					int ch;
 					String str = "";
 					while ((ch = fr.read()) != -1) {
