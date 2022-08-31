@@ -18,9 +18,14 @@ public class MyFrame extends JFrame{
 		
 		JMenuBar jmb = new JMenuBar();
 		JMenu draw = new JMenu("그리기 도구");
+		JMenu draw_Color = new JMenu("그리기 색상");
 		JMenuItem draw_line = new JMenuItem("선");
 		JMenuItem draw_rect = new JMenuItem("사각형");
 		JMenuItem draw_oval = new JMenuItem("원");
+		JMenuItem draw_red = new JMenuItem("빨강");
+		JMenuItem draw_green = new JMenuItem("초록");
+		JMenuItem draw_blue = new JMenuItem("파랑");
+		JMenuItem draw_black = new JMenuItem("검정");
 		
 		draw_line.addActionListener(new ActionListener() {
 			
@@ -46,6 +51,38 @@ public class MyFrame extends JFrame{
 				
 			}
 		});
+		draw_red.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.color = 0;
+				
+			}
+		});
+		draw_green.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.color = 1;
+				
+			}
+		});
+		draw_blue.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.color = 2;
+				
+			}
+		});
+		draw_black.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.color = 3;
+				
+			}
+		});
 		
 		
 		draw.add(draw_line);
@@ -53,6 +90,13 @@ public class MyFrame extends JFrame{
 		draw.add(draw_oval);
 		
 		jmb.add(draw);
+		
+		draw_Color.add(draw_red);
+		draw_Color.add(draw_green);
+		draw_Color.add(draw_blue);
+		draw_Color.add(draw_black);
+		
+		jmb.add(draw_Color);
 		
 		setJMenuBar(jmb);
 		

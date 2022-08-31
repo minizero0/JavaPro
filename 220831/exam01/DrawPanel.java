@@ -1,5 +1,6 @@
 package exam01;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,6 +11,8 @@ import javax.swing.JPanel;
 public class DrawPanel extends JPanel implements MouseListener{
 	private int x1,x2,y1,y2;
 	int drawType;		//접근명시자 생략시 같은 패키지내에 공유 허용
+	int color;
+	Color drawColor;
 
 	public DrawPanel() {
 		addMouseListener(this);
@@ -33,6 +36,14 @@ public class DrawPanel extends JPanel implements MouseListener{
 			height = y1 - y2;
 			y = y2;
 		}
+		
+		switch(color) {
+			case 0:g.setColor(Color.red);break;
+			case 1:g.setColor(Color.green);break;
+			case 2:g.setColor(Color.blue);break;
+			case 3:g.setColor(Color.black);break;
+		}
+		
 		
 		switch(drawType) {
 			case 0:g.drawLine(x1, y1, x2, y2);break;
