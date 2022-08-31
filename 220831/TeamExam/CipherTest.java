@@ -25,10 +25,9 @@ public class CipherTest {
 			fw.write(str);
 			fr.close();
 			fw.close();
+			System.out.println("시저 암호로 암호화하였습니다.");
 		}catch (Exception e) {
 			System.out.println("예외발생:" + e.getMessage());
 		}
-
 	}
-
 }
