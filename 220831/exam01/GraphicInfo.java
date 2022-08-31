@@ -1,8 +1,9 @@
 package exam01;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class GraphicInfo {
+public class GraphicInfo implements Serializable { //직렬화
 	private int x1,y1,x2,y2,drawType;
 	private Color drawColor;
 	public GraphicInfo(int x1, int y1, int x2, int y2, int drawType, Color drawColor) {

@@ -3,17 +3,30 @@ package exam01;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class MyFrame extends JFrame{
 	
 	private DrawPanel dp;
+	private JFrame f;
+	private JFileChooser jfc;
 	
 	public MyFrame() {
+		jfc = new JFileChooser("/Users/mini0/Desktop");
+		f = this;
 		dp = new DrawPanel();
 		add(dp);
 		
@@ -48,7 +61,20 @@ public class MyFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				try {
+					int re = jfc.showOpenDialog(f);
+					if(re == JFileChooser.APPROVE_OPTION){
+						
+					
+					File file = jfc.getSelectedFile();
+					ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+					
+					dp.list = (ArrayList<GraphicInfo>)ois.readObject();
+					dp.repaint();
+					}
+				}catch (Exception ex) {
+					System.out.println("예외발생:" + ex.getMessage());
+				}
 				
 			}
 		});
@@ -56,7 +82,20 @@ public class MyFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				try {
+					int re = jfc.showSaveDialog(f);
+					
+					if(re == JFileChooser.APPROVE_OPTION) {
+						
+					File file = jfc.getSelectedFile();
+					ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+					oos.writeObject(dp.list);
+					oos.close();
+					JOptionPane.showMessageDialog(null, "파일 저장 완료");
+					}
+				}catch (Exception ex) {
+					System.out.println("예외발생 :" + ex.getMessage());
+				}
 				
 			}
 		});
