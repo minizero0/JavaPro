@@ -1,5 +1,8 @@
 package exam01;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -18,6 +21,32 @@ public class MyFrame extends JFrame{
 		JMenuItem draw_line = new JMenuItem("선");
 		JMenuItem draw_rect = new JMenuItem("사각형");
 		JMenuItem draw_oval = new JMenuItem("원");
+		
+		draw_line.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.drawType = 0;
+				
+			}
+		});
+		draw_rect.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.drawType = 1;
+				
+			}
+		});
+		draw_oval.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dp.drawType = 2;
+				
+			}
+		});
+		
 		
 		draw.add(draw_line);
 		draw.add(draw_rect);

@@ -20,7 +20,6 @@ public class DrawPanel extends JPanel implements MouseListener{
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		
-//		g.drawLine(x1,y1,x2,y2);
 		int width = x2-x1;
 		int height = y2-y1;
 		int x = x1;
@@ -34,8 +33,12 @@ public class DrawPanel extends JPanel implements MouseListener{
 			height = y1 - y2;
 			y = y2;
 		}
-//		g.drawRect(x, y, width, height);
-		g.drawOval(x, y, width, height);
+		
+		switch(drawType) {
+			case 0:g.drawLine(x1, y1, x2, y2);break;
+			case 1:g.drawRect(x, y, width, height);break;
+			case 2:g.drawOval(x, y, width, height);break;
+		}
 	}
 
 	@Override
