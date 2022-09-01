@@ -8,7 +8,7 @@ public class UDPEchoServer {
 
 	public static void main(String[] args) {
 		try {
-			DatagramSocket socket = new DatagramSocket(9002);
+			DatagramSocket socket = new DatagramSocket(9004);
 			
 			byte data[] = new byte[100];
 			DatagramPacket packet = new DatagramPacket(data, data.length);

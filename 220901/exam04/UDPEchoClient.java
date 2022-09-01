@@ -14,16 +14,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class UDPEchoClient extends JFrame {
+
+
+public class UDPEchoClient extends JFrame implements Runnable{
 	private JTextArea jta;  		//멤버변수
 	private JTextField jtf;
 	DatagramSocket socket;
 	DatagramPacket packet;
 	InetAddress addr;
-	int port = 9002;
+	int port = 9004;
 	
 	
-	public UDPEchoClient() {
+	public UDPEchoClient(){
 		jta = new JTextArea();
 		jtf = new JTextField();
 		try {
@@ -59,19 +61,39 @@ public class UDPEchoClient extends JFrame {
 					socket.send(packet);
 					socket.receive(packet);
 					String msg = new String(data);
-					jta.setText(msg);
+					jta.append(msg + "\n");
+//					jta.setText(msg);
 				}catch(Exception ex) {
 					System.out.println("예외발생:" + ex.getMessage());
 				}
 				
 			}
 		});
-		
-		
+	}
+	@Override
+	public void run() {
+		try {
+			socket = new DatagramSocket();
+			byte data[] = new byte[100];
+			packet = new DatagramPacket(data, data.length);
+//			while(true) {
+//				socket.receive(packet);
+//				String msg = new String(data);
+//				jta.append(msg + "\n");
+//			}
+			
+		}catch (Exception e) {
+			System.out.println("예외발생 : " + e.getMessage());
+		}
 	}
 
+	
+
 	public static void main(String[] args) {
-		new UDPEchoClient();
+		UDPEchoClient uec = new UDPEchoClient();
+		uec.run();
+		
+		
 	}
 
 }
