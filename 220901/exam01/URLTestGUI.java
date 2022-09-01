@@ -45,19 +45,20 @@ public class URLTestGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int re = JOptionPane.showConfirmDialog(null, "검색합니까?");
 				if(re == 0) {
-					String name = jtf.getText();
+					String name = jtf.getText();  //TextField에 입력된 문자열로 name 초기화
 					try {
 						URL url = new URL(name);
 						InputStream is = url.openStream();
 						byte data[] = new byte[200];
 						String str = "";
-						String line = "";
+//						String line = "";
 						while (is.read(data) != -1) {
 							str += new String(data);
 //							str += line;
 							Arrays.fill(data, (byte)0);   //배열 초기화
 						}
 						jta.setText(str);
+						is.close();
 					}catch(Exception ex) {
 						System.out.println("예외발생:" + ex.getMessage());
 					}
