@@ -7,14 +7,14 @@ import java.net.Socket;
 public class TCPServer {
 
 	public static void main(String[] args) {
-		System.out.println("Server Started");
+
 		try {
-			ServerSocket server = new ServerSocket(12000);
-			
-			System.out.println("Client connect");
+			ServerSocket server = new ServerSocket(13000);
+			System.out.println("Server Started");
 			Thread.sleep(3000);
 			while(true) {
 				Socket socket = server.accept();
+				System.out.println("Client connect");
 				OutputStream os = socket.getOutputStream();
 				
 				for (int i = 0; i < 10; i++) {
