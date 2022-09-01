@@ -10,7 +10,7 @@ public class UDPSender {
 		try {
 			DatagramSocket socket = new DatagramSocket();
 			InetAddress add = InetAddress.getByName(args[0]);
-			String s = "Mr.cho";
+			String s = "감사합니다.";
 			byte data[] = s.getBytes();
 			DatagramPacket packet = new DatagramPacket(data, data.length, add, 13001);
 			
