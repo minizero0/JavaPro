@@ -62,15 +62,15 @@ public class MyFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int re = jfc.showOpenDialog(f);
+					int re = jfc.showOpenDialog(null);
 					if(re == JFileChooser.APPROVE_OPTION){
 						
 					
-					File file = jfc.getSelectedFile();
-					ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
-					
-					dp.list = (ArrayList<GraphicInfo>)ois.readObject();
-					dp.repaint();
+						File file = jfc.getSelectedFile();
+						ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+						
+						dp.list = (ArrayList<GraphicInfo>)ois.readObject();
+						dp.repaint();
 					}
 				}catch (Exception ex) {
 					System.out.println("예외발생:" + ex.getMessage());
@@ -87,11 +87,11 @@ public class MyFrame extends JFrame{
 					
 					if(re == JFileChooser.APPROVE_OPTION) {
 						
-					File file = jfc.getSelectedFile();
-					ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-					oos.writeObject(dp.list);
-					oos.close();
-					JOptionPane.showMessageDialog(null, "파일 저장 완료");
+						File file = jfc.getSelectedFile();
+						ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+						oos.writeObject(dp.list);
+						oos.close();
+						JOptionPane.showMessageDialog(null, "파일 저장 완료");
 					}
 				}catch (Exception ex) {
 					System.out.println("예외발생 :" + ex.getMessage());
