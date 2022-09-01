@@ -1,5 +1,6 @@
 package homework;
 
+import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,10 +31,15 @@ public class RandomFile {
 				str += "\n";
 			}
 		}
+		try {
+			FileWriter fw = new FileWriter(fname);
+			fw.write(str);
+			fw.close();
+			System.out.println("파일 생성완료");
+		}catch(Exception e) {
+			System.out.println("예외발생:" + e.getMessage());
+		}
 		
-		
-				
-
 	}
 
 }
