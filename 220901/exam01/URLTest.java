@@ -2,6 +2,7 @@ package exam01;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Arrays;
 
 
 public class URLTest {
@@ -17,6 +18,7 @@ public class URLTest {
 			while (is.read(data) != -1) {
 				line += new String(data);
 				str += line;
+				Arrays.fill(data, (byte)0);   //배열 초기화
 			}
 			System.out.println(str);
 		}catch(Exception e) {
