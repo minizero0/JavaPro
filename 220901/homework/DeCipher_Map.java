@@ -21,10 +21,9 @@ public class DeCipher_Map {
 			}
 			
 			String str = "";
-			String src = "";
 			int ch;
 			while((ch = fr.read()) != -1) {
-				if (ch >= 'a' && ch <= 'z') {
+				if (ch >= 'A' && ch <= 'Z') {
 					String s = ((char)ch)+"";
 					str += map.get(s);
 				}
