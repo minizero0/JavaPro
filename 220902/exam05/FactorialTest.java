@@ -6,16 +6,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class FactorialTest extends JFrame{
 	
 	public FactorialTest() {
 		setLayout(new FlowLayout());
-		
+		setTitle("factorial");
 		JTextField jta01 = new JTextField(5);
 		JTextField jta02 = new JTextField(5);
-		
+		JLabel j_result = new JLabel("        ");
 		JButton btn = new JButton("Factorial");
 		
 		btn.addActionListener(new ActionListener() {
@@ -27,6 +28,7 @@ public class FactorialTest extends JFrame{
 				while (n > 0) 
 					result *= n--;
 				jta02.setText(result+"");
+				j_result.setText(result+"");
 				
 			}
 		});
@@ -34,10 +36,12 @@ public class FactorialTest extends JFrame{
 		add(jta01);
 		add(btn);
 		add(jta02);
+		add(new JLabel("결과->"));
+		add(j_result);
 		
 		
 		
-		setSize(300,400);
+		setSize(400,200);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
