@@ -50,12 +50,12 @@ public class ClassAvg extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				double num1 = Double.parseDouble(jta02.getText());
-				double num2 = Double.parseDouble(jta03.getText());
-				double num3 = Double.parseDouble(jta04.getText());
+				int num1 = Integer.parseInt(jta02.getText());
+				int num2 = Integer.parseInt(jta03.getText());
+				int num3 = Integer.parseInt(jta04.getText());
 				
-				double avg = (num1 + num2 +num3)/3;
-				jta05.setText(avg+"");
+				double avg = (num1 + num2 +num3)/3.0;
+				jta05.setText(String.format("%.2f", avg));
 			}
 		});
 		
