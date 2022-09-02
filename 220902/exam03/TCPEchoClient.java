@@ -1,4 +1,4 @@
-package exam02;
+package exam03;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
