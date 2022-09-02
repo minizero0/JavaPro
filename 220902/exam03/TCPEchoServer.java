@@ -45,6 +45,7 @@ public class TCPEchoServer {
 
 	public static void main(String[] args) {
 		ServerThread st;
+		
 		try {
 			ServerSocket server = new ServerSocket(9010);
 			System.out.println("Server Start");
@@ -53,7 +54,7 @@ public class TCPEchoServer {
 				Socket socket = server.accept();			//연결된 의미를 소켓으로 반환
 				System.out.println("Client Connect");
 				st = new ServerThread(socket);
-				
+				st.start();
 			}
 		}catch (Exception e) {
 			System.out.println("예외발생:"+e.getMessage());
