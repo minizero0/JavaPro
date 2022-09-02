@@ -58,9 +58,6 @@ public class ClassAvg extends JFrame{
 				jta05.setText(avg+"");
 			}
 		});
-	
-		
-		
 		
 		setSize(500,500);
 		setVisible(true);
