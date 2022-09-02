@@ -78,6 +78,7 @@ public class TCPChatClient extends JFrame{
 			String msg = jtf.getText();
 			try {
 				os.write(msg.getBytes());
+				jtf.setText("");
 			}catch(Exception ex) {
 				System.out.println("예외발생:"+ex.getMessage());
 			}
