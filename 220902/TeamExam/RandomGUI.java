@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 public class RandomGUI extends JFrame{
 	private int cnt = 0;
+	
 	public RandomGUI() {
 		int r = (int)(Math.random() * 100 + 1);
 		setLayout(new BorderLayout());
@@ -33,17 +34,20 @@ public class RandomGUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int n = Integer.parseInt(jtf.getText());
-				
-				if (r > n) 
-					jta.append("입력한 수" + (n+"") + "보다 높은 수를 입력하세요.\n");
-				else if(n == r) {
-					jta.append("정답\n입력 횟수:" + ++cnt + "");
-					return;
+				try {
+					int n = Integer.parseInt(jtf.getText());
+					
+					cnt++;
+					if (r > n) 
+						jta.append("입력한 수" + (n+"") + "보다 높은 수를 입력하세요.\n");
+					else if(n == r) 
+						jta.append("정답\n입력 횟수:" + cnt + "");
+					else
+						jta.append("입력한 수" + (n+"") + "보다 낮은 수를 입력하세요.\n");
+					
+				}catch(Exception ex) {
+					System.out.println(ex.getMessage());
 				}
-				else
-					jta.append("입력한 수" + (n+"") + "보다 낮은 수를 입력하세요.\n");
-				cnt++;
 			}
 			
 		});
