@@ -38,8 +38,12 @@ public class CalcFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				int result;
+				int a,b;
+				a = Integer.parseInt(jtf01.getText());
+				b = Integer.parseInt(jtf02.getText());
+				result = a + b;
+				jtf03.setText(result+"");
 			}
 		});
 		
