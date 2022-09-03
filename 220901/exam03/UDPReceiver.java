@@ -13,13 +13,13 @@ public class UDPReceiver {
 			byte data[] = new byte[100];
 			
 			DatagramPacket packet = new DatagramPacket(data, data.length);
+			
 			while(true) {
 				socket.receive(packet);
 				String msg = new String(data);
 				System.out.println("수신된 데이터 : " +msg);
 				Arrays.fill(data, (byte)0);
 			}
-			
 		}catch(Exception e) {
 			System.out.println("예외발생:"+e.getMessage());
 		}
