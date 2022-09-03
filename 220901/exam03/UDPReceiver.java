@@ -24,5 +24,4 @@ public class UDPReceiver {
 			System.out.println("예외발생:"+e.getMessage());
 		}
 	}
-
 }
