@@ -17,7 +17,6 @@ public class TCPClient {
 			is.close();			//작업이 끝나면 종료해준다.
 			socket.close();
 			
-			
 		}catch (Exception e) {
 			System.out.println("예외발생:" + e.getMessage());
 		}
