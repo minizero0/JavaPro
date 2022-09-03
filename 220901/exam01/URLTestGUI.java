@@ -38,6 +38,7 @@ public class URLTestGUI extends JFrame {
 		
 		JPanel p = new JPanel();
 		JPanel Bt = new JPanel();
+		
 		p.setLayout(new BorderLayout());
 		p.add(jtf, BorderLayout.CENTER);
 		p.add(Bt, BorderLayout.EAST);
