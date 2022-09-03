@@ -35,6 +35,7 @@ public class RandomGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
+					int s = r;
 					int n = Integer.parseInt(jtf.getText());
 					
 					cnt++;
@@ -49,7 +50,6 @@ public class RandomGUI extends JFrame{
 					System.out.println(ex.getMessage());
 				}
 			}
-			
 		});
 		
 		
