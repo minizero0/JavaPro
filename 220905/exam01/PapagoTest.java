@@ -25,7 +25,7 @@ public class PapagoTest extends JFrame{
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();
 		
-		jp1.setLayout(new GridLayout(1,1,10,10));
+		jp1.setLayout(new GridLayout(1,2,10,10));
 		jp2.setLayout(new FlowLayout());
 		
 		jta1 = new JTextArea("텍스트가 입력됩니다.\n몇개의 단어를 영어로\n변환합니다.");
