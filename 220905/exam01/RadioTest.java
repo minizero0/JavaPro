@@ -62,7 +62,7 @@ public class RadioTest extends JFrame{
 		
 		add(jp1, BorderLayout.WEST);
 		
-		setSize(300, 400);
+		setSize(700, 600);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
