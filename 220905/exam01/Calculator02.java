@@ -41,8 +41,6 @@ public class Calculator02 extends JFrame{
 						op1 = Integer.parseInt(jta.getText());
 						op = cmd;
 						jta.setText("");
-						System.out.println(op1);
-						System.out.println(op);
 					}
 					else if (cmd == "=") {
 						op2 = Integer.parseInt(jta.getText());
