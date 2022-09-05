@@ -13,6 +13,21 @@ public class JCheckBoxTest extends JFrame{
 	JCheckBox jcb02;
 	JLabel jlb01;
 	
+	public void pro() {
+		String str = "";
+		if(jcb01.isSelected() && jcb02.isSelected()) {
+			str = "apple, grape all choose";
+		}else if(jcb01.isSelected() && !jcb02.isSelected()) {
+			str = "choose Apple";
+		}else if(!jcb01.isSelected() && jcb02.isSelected()) {
+			str = "choose Grape";
+		}else {
+			str = "choose Nothing";
+		}
+		jlb01.setText(str);
+		
+	}
+	
 	public JCheckBoxTest() {
 		jcb01 = new JCheckBox("Apple");
 		jcb02 = new JCheckBox("Grape");
@@ -31,8 +46,9 @@ public class JCheckBoxTest extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				
+				boolean r = jcb01.isSelected();
+				System.out.println(r);
 			}
 		});
 		jcb02.addActionListener(new ActionListener() {
