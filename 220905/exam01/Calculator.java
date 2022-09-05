@@ -2,6 +2,8 @@ package exam01;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,13 +11,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Calculator extends JFrame{
-	String s1,s2;
+	int op1,op2;
+	String op;
 	JTextField jta;
 	JButton btn[] = new JButton[16];
-	
+	String s = "";
 	
 	public Calculator() {	
-		String arr[] = {"7","8","9","X",		//버튼에 넣을 내용을 배열로 생성
+		String arr[] = {"7","8","9","*",		//버튼에 넣을 내용을 배열로 생성
 						"4","5","6","-",
 						"1","2","3","+",
 						"C","0","=","/"
@@ -28,8 +31,26 @@ public class Calculator extends JFrame{
 		for (int i = 0; i <arr.length; i++) {
 			btn[i] = new JButton(arr[i]);
 			jp.add(btn[i]);
+			
+			btn[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String cmd = e.getActionCommand();
+					if (cmd == "+" || cmd == "-" || cmd == "/" || cmd == "*" || cmd == "=") {
+						op1 = Integer.parseInt(s);
+						op = cmd;
+						jta.setText("");
+						System.out.println(op1);
+						s = "";
+					}
+					else {
+						s += cmd;
+						jta.setText(s);
+					}
+				
+				}
+			});
 		}
-		
 		
 		add(jta, BorderLayout.NORTH);
 		add(jp, BorderLayout.CENTER);
