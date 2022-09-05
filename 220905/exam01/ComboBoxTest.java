@@ -30,8 +30,8 @@ public class ComboBoxTest extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String item = (String)jcb.getSelectedItem(); 						//콤보박스에 눌러진 아이템;
-				jlb.setText(item);
+				String item = (String)jcb.getSelectedItem(); 			//콤보박스에서 선택된 아이템;
+				jlb.setText(item);										//라벨에 선택된 콤보박스 설정
 				
 			}
 		});
