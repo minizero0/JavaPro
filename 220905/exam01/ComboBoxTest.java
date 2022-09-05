@@ -1,6 +1,9 @@
 package exam01;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
@@ -23,9 +26,19 @@ public class ComboBoxTest extends JFrame{
 		jcb = new JComboBox<String>(data);
 		jlb = new JLabel();
 		
-		setLayout(new FlowLayout());
-		add(jcb);
-		add(jlb);
+		jcb.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String item = (String)jcb.getSelectedItem(); 						//콤보박스에 눌러진 아이템;
+				jlb.setText(item);
+				
+			}
+		});
+		
+		setLayout(new BorderLayout());
+		add(jcb, BorderLayout.NORTH);
+		add(jlb, BorderLayout.CENTER);
 		setSize(300, 400);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
