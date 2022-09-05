@@ -16,6 +16,7 @@ public class Calculator extends JFrame{
 	JTextField jta;
 	JButton btn[] = new JButton[16];
 	String s = "";
+	int cnt = 0;
 	
 	public Calculator() {	
 		String arr[] = {"7","8","9","*",		//버튼에 넣을 내용을 배열로 생성
@@ -36,11 +37,26 @@ public class Calculator extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					String cmd = e.getActionCommand();
-					if (cmd == "+" || cmd == "-" || cmd == "/" || cmd == "*" || cmd == "=") {
+					if (cmd == "+" || cmd == "-" || cmd == "/" || cmd == "*") {
+//						if(cmd.equals("+") || cmd.equals("-") || ~~~ 이렇게 사용햐도됨.
 						op1 = Integer.parseInt(s);
 						op = cmd;
 						jta.setText("");
 						System.out.println(op1);
+						System.out.println(op);
+						s = "";
+					}
+					else if (cmd == "=") {
+						op2 = Integer.parseInt(s);
+						switch (op) {
+							case "+": jta.setText((op1+op2)+"");break;
+							case "-": jta.setText((op1-op2)+"");break;
+							case "*": jta.setText((op1*op2)+"");break;
+							case "/": jta.setText((op1/op2)+"");break;
+						}
+					}
+					else if (cmd == "C") {
+						jta.setText("");
 						s = "";
 					}
 					else {
