@@ -14,14 +14,15 @@ public class Calculator extends JFrame{
 	JButton btn[] = new JButton[16];
 	
 	
-	public Calculator() {
-		String arr[] = {"7","8","9","X",
+	public Calculator() {	
+		String arr[] = {"7","8","9","X",		//버튼에 넣을 내용을 배열로 생성
 						"4","5","6","-",
 						"1","2","3","+",
 						"C","0","=","/"
 						};
-		setLayout(new BorderLayout(1, 70));
-		JPanel jp = new JPanel(new GridLayout(4,4));
+		
+		setLayout(new BorderLayout(1, 70));				
+		JPanel jp = new JPanel(new GridLayout(4,4));		//4X4 GridLayout을 설정해 버튼 넣어주기 위한 패널 설정
 		
 		jta = new JTextField();
 		for (int i = 0; i <arr.length; i++) {
