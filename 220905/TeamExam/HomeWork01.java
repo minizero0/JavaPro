@@ -32,6 +32,7 @@ public class HomeWork01 extends JFrame{
 	}
 	
 	public HomeWork01() {
+		
 		setTitle("숫자게임");
 		setLayout(new BorderLayout());
 		JPanel jp = new JPanel(new FlowLayout());
@@ -40,7 +41,7 @@ public class HomeWork01 extends JFrame{
 		jlb1 = new JLabel("숫자를 추측하시오 : ");
 		jlb2 = new JLabel();
 		
-		
+		jlb2.setHorizontalAlignment(JLabel.CENTER); 		//Label 가운데정렬 !
 		
 		btn1 = new JButton("다시 한번");
 		btn2 = new JButton("종료");
