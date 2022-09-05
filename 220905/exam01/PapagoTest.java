@@ -30,7 +30,7 @@ public class PapagoTest extends JFrame{
 		
 		jta1 = new JTextArea("텍스트가 입력됩니다.\n몇개의 단어를 영어로\n변환합니다.");
 		JScrollPane jsp1 = new JScrollPane(jta1);
-		jta2 = new JTextArea("Text가 입력됩니다.\n몇개의 단어를 English로\n변환합니다.");
+		jta2 = new JTextArea();
 		JScrollPane jsp2 = new JScrollPane(jta2);
 		btn1 = new JButton("변환");
 		btn2 = new JButton("취소");
@@ -40,7 +40,7 @@ public class PapagoTest extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String str = jta1.getText();
-				str = str.replace("텍스트", "Text");
+				str = str.replace("텍스트", "Text").replace("단어", "word");
 				str = str.replace("영어", "English");
 				jta2.setText(str);
 			}
