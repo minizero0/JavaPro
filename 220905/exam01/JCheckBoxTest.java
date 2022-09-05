@@ -13,6 +13,7 @@ public class JCheckBoxTest extends JFrame{
 	JCheckBox jcb02;
 	JLabel jlb01;
 	
+	
 	public void pro() {
 		String str = "";
 		if(jcb01.isSelected() && jcb02.isSelected()) {
@@ -47,16 +48,14 @@ public class JCheckBoxTest extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				boolean r = jcb01.isSelected();
-				System.out.println(r);
+				pro();
 			}
 		});
 		jcb02.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				pro();
 			}
 		});
 		
