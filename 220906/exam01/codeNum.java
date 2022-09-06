@@ -3,6 +3,8 @@ package exam01;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -13,13 +15,29 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+class Person{
+	String name, phone, addr;
+	
+	public Person(String name, String phone, String addr) {
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+	}
+	public String toString() {
+		return "이름" + name + "번호" + phone + "주소" + addr;
+	}
+}
+
+
+
 public class codeNum extends JFrame{
 	
 	JTextField jtf1,jtf2;
 	JTextArea jta;
-	ArrayList<String> list;
+	ArrayList<Person> list;
 	JLabel jlb1,jlb2,jlb3;
 	JButton btn1,btn2,btn3;
+	
 	
 	public codeNum() {
 		setLayout(new BorderLayout());
@@ -27,6 +45,7 @@ public class codeNum extends JFrame{
 		jtf2 = new JTextField(7);
 		jta = new JTextArea();
 		JScrollPane jsp = new JScrollPane(jta);
+		list = new ArrayList<Person>();
 		
 		JPanel jp1 = new JPanel(new FlowLayout());
 		JPanel jp2 = new JPanel(new GridLayout(2, 2));
@@ -39,6 +58,33 @@ public class codeNum extends JFrame{
 		btn1 = new JButton("저장");
 		btn2 = new JButton("검색");
 		btn3 = new JButton("종료");
+		
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				list.add(new Person(jtf1.getText(), jtf2.getText(), jta.getText()));
+			}
+		});
+		
+		btn2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(list);
+				
+			}
+		});
+		
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+				
+			}
+		});
+		
 		
 		jp1.add(btn1);
 		jp1.add(btn2);
