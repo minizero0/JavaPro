@@ -15,7 +15,13 @@ public class InsertMember {
 		System.out.println("setAddr");
 		addr = sc.next();
 		
-		System.out.println("이름: " +name+ ",전화: " +phone+",주소: "+addr);
+//		System.out.println("이름: " +name+ ",전화: " +phone+",주소: "+addr);
+		
+		try {
+			
+		}catch(Exception e) {
+			System.out.println("예외발생:"+e.getMessage());
+		}
 	}
 
 }
