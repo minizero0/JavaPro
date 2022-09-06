@@ -54,6 +54,7 @@ public class HomeWork01 extends JFrame{
 				
 			}
 		});
+		
 		btn2.addActionListener(new ActionListener() {
 			
 			@Override
@@ -63,6 +64,7 @@ public class HomeWork01 extends JFrame{
 					System.exit(0);
 			}
 		});
+		
 		jp.add(jlb1);
 		jp.add(jtf);
 		jp2.add(btn1);
@@ -70,7 +72,6 @@ public class HomeWork01 extends JFrame{
 		add(jlb2, BorderLayout.CENTER);
 		add(jp, BorderLayout.NORTH);
 		add(jp2, BorderLayout.SOUTH);
-		
 		
 		setSize(300,200);
 		setVisible(true);
@@ -80,5 +81,4 @@ public class HomeWork01 extends JFrame{
 	public static void main(String[] args) {
 		new HomeWork01();
 	}
-
 }
