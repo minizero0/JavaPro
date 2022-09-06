@@ -93,7 +93,6 @@ public class codeNum extends JFrame{
 //						JOptionPane.showMessageDialog(null, "존재하지않습니다.");
 						result = "NotFine";
 				}
-					
 			}
 		});
 		
