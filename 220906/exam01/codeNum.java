@@ -6,10 +6,12 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -71,8 +73,17 @@ public class codeNum extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(list);
+				Iterator<Person> iter = list.iterator();
+				String a = jtf1.getText();
+				String b = jtf2.getText();
+				String c = jta.getText();
 				
+				while(iter.hasNext()) {
+					Person p = iter.next();
+					if (p.name.equals(a) || p.phone.equals(b) || p.equals(c))
+						JOptionPane.showMessageDialog(null, "검색한 사람 있습니다");
+				}
+					
 			}
 		});
 		
