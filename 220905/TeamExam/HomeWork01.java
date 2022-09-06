@@ -72,9 +72,6 @@ public class HomeWork01 extends JFrame{
 		add(jp2, BorderLayout.SOUTH);
 		
 		
-		
-		
-		
 		setSize(300,200);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
