@@ -66,6 +66,9 @@ public class codeNum extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				list.add(new Person(jtf1.getText(), jtf2.getText(), jta.getText()));
+				jtf1.setText("");
+				jtf2.setText("");
+				jta.setText("");
 			}
 		});
 		
@@ -80,8 +83,12 @@ public class codeNum extends JFrame{
 				
 				while(iter.hasNext()) {
 					Person p = iter.next();
-					if (p.name.equals(a) || p.phone.equals(b) || p.equals(c))
+					if (p.name.equals(a) && p.phone.equals(b) && p.addr.equals(c))
+//						System.out.println("존재합니다.");
 						JOptionPane.showMessageDialog(null, "검색한 사람 있습니다");
+					else
+//						System.out.println("존재x");
+						JOptionPane.showMessageDialog(null, "존재하지않습니다.");
 				}
 					
 			}
