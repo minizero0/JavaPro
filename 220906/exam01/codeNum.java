@@ -80,15 +80,18 @@ public class codeNum extends JFrame{
 				String a = jtf1.getText();
 				String b = jtf2.getText();
 				String c = jta.getText();
+				String result;
 				
 				while(iter.hasNext()) {
 					Person p = iter.next();
 					if (p.name.equals(a) && p.phone.equals(b) && p.addr.equals(c))
 //						System.out.println("존재합니다.");
-						JOptionPane.showMessageDialog(null, "검색한 사람 있습니다");
+//						JOptionPane.showMessageDialog(null, "검색한 사람 있습니다");
+						result = "Find";
 					else
 //						System.out.println("존재x");
-						JOptionPane.showMessageDialog(null, "존재하지않습니다.");
+//						JOptionPane.showMessageDialog(null, "존재하지않습니다.");
+						result = "NotFine";
 				}
 					
 			}
