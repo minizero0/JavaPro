@@ -6,19 +6,42 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 
 public class GoodsSaveTest extends JFrame{
 	
 	private JTextArea jta1,jta2,jta3;
+	Vector<Vector<String>> rowData;
+	JTable table;
+	
 
 	public GoodsSaveTest() {
+		Vector<String> colNames = new Vector<String>();
+		colNames.add("상품평");
+		colNames.add("가격");
+		colNames.add("수량");
+		
+		rowData = new Vector<Vector<String>>();
+		Vector<String> v1 = new Vector<String>();
+		v1.add("red");
+		v1.add(1000+"");
+		v1.add(10+"");
+		Vector<String> v2 = new Vector<String>();
+		v2.add("blue");
+		v2.add(2000+"");
+		v2.add(15+"");
+		rowData.add(v1);
+		rowData.add(v2);
+		
+		
 		setLayout(null);
 		
 		JLabel jlb1 = new JLabel("상품명");
@@ -52,10 +75,10 @@ public class GoodsSaveTest extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String name = jta1.getText();
-				String price = jta2.getText();
-				String num = jta3.getText();
+				int price = Integer.parseInt(jta2.getText()); 
+				int num = Integer.parseInt(jta3.getText());
 				
-				String sql = "insert into goods values('"+name+"', '"+price+"', '"+num+"')";
+				String sql = "insert into goods values('"+name+"', "+price+", "+num+")";
 				
 				try {
 					Class.forName("oracle.jdbc.driver.OracleDriver");
