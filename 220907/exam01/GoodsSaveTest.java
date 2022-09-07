@@ -1,6 +1,8 @@
 package exam01;
 
 import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -13,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 
@@ -24,6 +27,7 @@ public class GoodsSaveTest extends JFrame{
 	
 
 	public GoodsSaveTest() {
+		setLayout(new GridLayout(2,1));
 		Vector<String> colNames = new Vector<String>();
 		colNames.add("상품평");
 		colNames.add("가격");
@@ -41,20 +45,28 @@ public class GoodsSaveTest extends JFrame{
 		rowData.add(v1);
 		rowData.add(v2);
 		
+		table = new JTable(rowData, colNames);
+		JScrollPane jsp = new JScrollPane(table);
 		
-		setLayout(null);
+		add(jsp);
+		
+		
+		
+		JPanel jp1 = new JPanel();
+		jp1.setLayout(null);
 		
 		JLabel jlb1 = new JLabel("상품명");
 		jlb1.setBounds(10, 20, 100, 40);
-		add(jlb1);
+		
+		jp1.add(jlb1);
 		
 		JLabel jlb2 = new JLabel("단가");
 		jlb2.setBounds(10, 60, 100, 40);
-		add(jlb2);
+		jp1.add(jlb2);
 		
 		JLabel jlb3 = new JLabel("수량");
 		jlb3.setBounds(10, 100, 100, 40);
-		add(jlb3);
+		jp1.add(jlb3);
 		
 		jta1 = new JTextArea();
 		jta2 = new JTextArea();
@@ -64,9 +76,9 @@ public class GoodsSaveTest extends JFrame{
 		jta2.setBounds(120, 60, 200, 30);
 		jta3.setBounds(120, 100, 200, 30);
 		
-		add(jta1);
-		add(jta2);
-		add(jta3);
+		jp1.add(jta1);
+		jp1.add(jta2);
+		jp1.add(jta3);
 		
 		JButton btn = new JButton("등록");
 		
@@ -110,8 +122,10 @@ public class GoodsSaveTest extends JFrame{
 		
 		btn.setBounds(150, 160, 100, 50);
 		
-		add(btn);
-		setSize(400,300);
+		jp1.add(btn);
+		add(jp1);
+		
+		setSize(400,500);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
