@@ -73,6 +73,7 @@ public class MemberTest extends JFrame{
 				
 				try {
 					//1.jdbc드라이버를 메모리로 로드한다.
+					Class.forName("oracle.jdbc.driver.OracleDriver");
 					
 				}catch(Exception ex) {
 					System.out.println("예외발생:"+ex.getMessage());
