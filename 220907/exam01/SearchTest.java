@@ -45,7 +45,7 @@ public class SearchTest extends JFrame{
 						String name = rs.getString(1);
 						String phone = rs.getString(2);
 						String addr = rs.getString(3);
-						jta.setText("이름:" + name + ", 전화:" + phone + ", 주소:" + addr+ "\n");
+						jta.append("이름:" + name + "\t 전화:" + phone + "\t 주소:" + addr+ "\n");
 						System.out.println(name+", "+phone+", "+addr);
 					}
 					
