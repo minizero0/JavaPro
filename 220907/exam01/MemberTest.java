@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -85,6 +86,9 @@ public class MemberTest extends JFrame{
 					Connection conn = DriverManager.getConnection(url,user,pwd);
 					
 					//3.sql명령 실행하기위한 Statement객체 생성.
+					Statement stmt = conn.createStatement();
+					
+					//4.sql명령 실행.
 					
 				}catch(Exception ex) {
 					System.out.println("예외발생:"+ex.getMessage());
