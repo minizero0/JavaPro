@@ -50,18 +50,68 @@ public class GoodsTestGUI2_Update extends JFrame{
 			
 			if (re == 1) {
 				JOptionPane.showMessageDialog(null, "입력완료");
-				
 			}
 			
 			conn.close();
 			stmt.close();
 			
-			
-			
 		}catch(Exception ex) {
 			System.out.println(ex.getMessage());
 		}
 		
+	}
+	
+	public void updateGoods() {
+		String name = jta1.getText();
+		int price = Integer.parseInt(jta2.getText());
+		int num = Integer.parseInt(jta3.getText());
+		
+		
+		String sql = "update goods set price = " + price + ", qty = " + num + "WHERE item = '"+name+"'";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String usr = "c##sist0307";
+			String pwd = "sist0307";
+			
+			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Statement stmt = conn.createStatement();
+			int re = stmt.executeUpdate(sql);
+			if(re > 0) {
+				JOptionPane.showMessageDialog(null, "수정완료");
+			}
+			
+			conn.close();
+			stmt.close();
+		}catch(Exception e) {
+			System.out.println("예외발생:" + e.getMessage());
+		}
+		
+	}
+	
+	public void deleteGoods() {
+		String name = jta1.getText();
+		String sql = "delete goods where item = '" + name + "'";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String usr = "c##sist0307";
+			String pwd = "sist0307";
+			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Statement stmt = conn.createStatement();
+			
+			int re = stmt.executeUpdate(sql);
+			if(re > 0) {					//삭제한 레코드가 즉, 이름이 같은 데이터가 2개가 삭제되면 re는 2가된다.
+				JOptionPane.showMessageDialog(null, "삭제 완료");
+			}
+			conn.close();
+			stmt.close();
+			
+		}catch(Exception e) {
+			System.out.println("예외발생:" +e.getMessage());
+		}
 	}
 	
 	public void listGoods() {
@@ -111,10 +161,7 @@ public class GoodsTestGUI2_Update extends JFrame{
 		
 		
 		add(jsp);
-		
-		
 		listGoods();
-		
 		
 		JPanel jp1 = new JPanel();
 		jp1.setLayout(null);
@@ -145,6 +192,8 @@ public class GoodsTestGUI2_Update extends JFrame{
 		jp1.add(jta3);
 		
 		JButton btn = new JButton("등록");
+		JButton btn1 = new JButton("수정");
+		JButton btn2 = new JButton("삭제");
 		
 		btn.addActionListener(new ActionListener() {
 			
@@ -157,16 +206,40 @@ public class GoodsTestGUI2_Update extends JFrame{
 			}
 		});
 		
-		btn.setBounds(150, 160, 100, 50);
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				updateGoods();
+				listGoods();
+				table.updateUI();
+			}
+		});
+		
+		btn2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				deleteGoods();
+				listGoods();
+				table.updateUI();
+			}
+		});
+		
+		btn.setBounds(80, 160, 50, 30);
+		btn1.setBounds(140, 160, 50, 30);
+		btn2.setBounds(200, 160, 50, 30);
 		
 		jp1.add(btn);
+		jp1.add(btn1);
+		jp1.add(btn2);
 		add(jp1);
 		
 		setSize(400,500);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-table.addMouseListener(new MouseListener() {
+		table.addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
