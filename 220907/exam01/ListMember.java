@@ -2,6 +2,7 @@ package exam01;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.swing.JFrame;
@@ -22,14 +23,19 @@ public class ListMember extends JFrame{
 			
 			Statement stmt = conn.createStatement();
 			
-			int re = stmt.executeUpdate(sql);
+			ResultSet rs = stmt.executeQuery(sql);
 			
-			if (re == 1) {
-				JOptionPane.showMessageDialog(null, "조회완료");
+			while(rs.next()) {	//next()는 Cursor를 다음행으로 옮겨주는 메소드. 다음 레코드가 없으면 false를 반환.
+				String name = rs.getString(1);
+				String phone = rs.getString(2);
+				String addr = rs.getString(3);
+				System.out.println(name+", "+phone+", "+addr);
+				
 			}
 			
 			stmt.close();
 			conn.close();
+			rs.close();
 			
 			
 		}catch(Exception e) {
