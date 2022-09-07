@@ -28,6 +28,9 @@ public class ListMember extends JFrame{
 				JOptionPane.showMessageDialog(null, "조회완료");
 			}
 			
+			stmt.close();
+			conn.close();
+			
 			
 		}catch(Exception e) {
 			System.out.println("예외발생:"+ e.getMessage());
