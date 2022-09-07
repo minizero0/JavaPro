@@ -45,7 +45,7 @@ public class GoodsSaveTest extends JFrame{
 		add(jta2);
 		add(jta3);
 		
-		JButton btn = new JButton("입력");
+		JButton btn = new JButton("등록");
 		
 		btn.addActionListener(new ActionListener() {
 			
@@ -85,7 +85,7 @@ public class GoodsSaveTest extends JFrame{
 			}
 		});
 		
-		btn.setBounds(150, 160, 50, 50);
+		btn.setBounds(150, 160, 100, 50);
 		
 		add(btn);
 		setSize(400,300);
