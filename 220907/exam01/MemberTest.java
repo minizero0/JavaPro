@@ -11,6 +11,7 @@ import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -89,6 +90,17 @@ public class MemberTest extends JFrame{
 					Statement stmt = conn.createStatement();
 					
 					//4.sql명령 실행.
+					int re = stmt.executeUpdate(sql);			//re 1이면 성공
+					
+					if (re == 1) {
+						JOptionPane.showMessageDialog(null, "회원의 정보를 추가하였습니다.");
+					}
+					
+					//5.사용했던 자원들을 닫아 줍니다.
+					stmt.close();
+					conn.close();
+					
+					
 					
 				}catch(Exception ex) {
 					System.out.println("예외발생:"+ex.getMessage());
