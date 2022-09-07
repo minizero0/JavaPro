@@ -119,7 +119,7 @@ public class GoodsTestGUI2_Update extends JFrame{
 		
 		try {
 			String sql = "select * from goods";
-			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
 			String usr = "c##sist0307";
 			String pwd = "sist0307";
