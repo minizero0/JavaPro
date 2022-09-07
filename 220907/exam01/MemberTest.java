@@ -84,6 +84,8 @@ public class MemberTest extends JFrame{
 					String pwd = "sist0307";
 					Connection conn = DriverManager.getConnection(url,user,pwd);
 					
+					//3.sql명령 실행하기위한 Statement객체 생성.
+					
 				}catch(Exception ex) {
 					System.out.println("예외발생:"+ex.getMessage());
 				}
