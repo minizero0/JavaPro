@@ -81,7 +81,7 @@ public class MemberTest extends JFrame{
 					
 					
 					//2.DB서버에 연결
-					String url = "jdbc:oracle:this:@172.30.1.3:1521:XE";
+					String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
 					String user = "c##sist0307";
 					String pwd = "sist0307";
 					Connection conn = DriverManager.getConnection(url,user,pwd);
@@ -99,7 +99,6 @@ public class MemberTest extends JFrame{
 					//5.사용했던 자원들을 닫아 줍니다.
 					stmt.close();
 					conn.close();
-					
 					
 					
 				}catch(Exception ex) {
