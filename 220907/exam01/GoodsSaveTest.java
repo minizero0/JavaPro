@@ -22,11 +22,24 @@ public class GoodsSaveTest extends JFrame{
 		setLayout(null);
 		
 		JLabel jlb1 = new JLabel("상품명");
-		jlb1.setBounds(10, 10, 100, 40);
+		jlb1.setBounds(10, 20, 100, 40);
+		add(jlb1);
 		
-		jta1 = new JTextArea("상품명");
-		jta2 = new JTextArea("단가");
-		jta3 = new JTextArea("수량");
+		JLabel jlb2 = new JLabel("단가");
+		jlb2.setBounds(10, 60, 100, 40);
+		add(jlb2);
+		
+		JLabel jlb3 = new JLabel("수량");
+		jlb3.setBounds(10, 100, 100, 40);
+		add(jlb3);
+		
+		jta1 = new JTextArea();
+		jta2 = new JTextArea();
+		jta3 = new JTextArea();
+		
+		jta1.setBounds(120, 20, 200, 30);
+		jta2.setBounds(120, 60, 200, 30);
+		jta3.setBounds(120, 100, 200, 30);
 		
 		add(jta1);
 		add(jta2);
@@ -71,6 +84,8 @@ public class GoodsSaveTest extends JFrame{
 				
 			}
 		});
+		
+		btn.setBounds(150, 160, 50, 50);
 		
 		add(btn);
 		setSize(400,300);
