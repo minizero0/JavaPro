@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -76,6 +78,40 @@ public class TeamExam extends JFrame{
 			
 			Connection conn = DriverManager.getConnection(url, usr, pwd);
 			Statement stmt = conn.createStatement();
+			int re = stmt.executeUpdate(sql);
+			if (re > 0) {
+				JOptionPane.showMessageDialog(null, "수정 완료!");
+			}
+			conn.close();
+			stmt.close();
+			
+			
+		}catch(Exception e) {
+			System.out.println("예외발생:"+e.getMessage());
+		}
+	}
+	
+	
+	public void deleteLib() {
+		int num = Integer.parseInt(jtf1.getText());
+		String sql = "delete lib where num = "+num+"";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String usr = "c##sist0307";
+			String pwd = "sist0307";
+			
+			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Statement stmt = conn.createStatement();
+			int re = stmt.executeUpdate(sql);
+			if (re > 0) {
+				JOptionPane.showMessageDialog(null, "삭제 완료!");
+			}
+			conn.close();
+			stmt.close();
+			
 			
 		}catch(Exception e) {
 			System.out.println("예외발생:"+e.getMessage());
@@ -118,6 +154,8 @@ public class TeamExam extends JFrame{
 		}
 		
 	}
+	
+	
 	
 	public TeamExam() {
 		
@@ -171,18 +209,21 @@ public class TeamExam extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				updateLib();
+				list();
+				table.updateUI();
 			}
 		});
 		btn3.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				deleteLib();
+				list();
+				table.updateUI();
 			}
 		});
+		
 		
 		jp3.add(btn1);
 		jp3.add(btn2);
@@ -210,6 +251,48 @@ public class TeamExam extends JFrame{
 		setSize(400,300);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		table.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				int row = table.getSelectedRow();
+				Vector<String> v = rateData.get(row);
+				int num = Integer.parseInt(v.get(0));
+				String name = v.get(1);
+				int price = Integer.parseInt(v.get(2));
+				String produce = v.get(3);
+				
+				jtf1.setText(num+"");
+				jtf2.setText(name);
+				jtf3.setText(price+"");
+				jtf4.setText(produce);
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 	}
 	
