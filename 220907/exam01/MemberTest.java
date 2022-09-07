@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -74,6 +76,13 @@ public class MemberTest extends JFrame{
 				try {
 					//1.jdbc드라이버를 메모리로 로드한다.
 					Class.forName("oracle.jdbc.driver.OracleDriver");
+					
+					
+					//2.DB서버에 연결
+					String url = "jdbc:oracle:this:@172.30.1.3:1521:XE";
+					String user = "c##sist0307";
+					String pwd = "sist0307";
+					Connection conn = DriverManager.getConnection(url,user,pwd);
 					
 				}catch(Exception ex) {
 					System.out.println("예외발생:"+ex.getMessage());
