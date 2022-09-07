@@ -5,6 +5,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,7 +22,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 
-public class GoodsTestGUI extends JFrame{
+public class GoodsTestGUI2_Update extends JFrame{
 	
 	private JTextArea jta1,jta2,jta3;
 	Vector<Vector<String>> rowData;
@@ -96,7 +98,7 @@ public class GoodsTestGUI extends JFrame{
 		}
 	}
 
-	public GoodsTestGUI() {
+	public GoodsTestGUI2_Update() {
 		setLayout(new GridLayout(2,1));
 		
 		rowData = new Vector<Vector<String>>();
@@ -106,6 +108,8 @@ public class GoodsTestGUI extends JFrame{
 		colNames.add("수량");
 		table = new JTable(rowData, colNames);
 		JScrollPane jsp = new JScrollPane(table);
+		
+		
 		add(jsp);
 		
 		
@@ -162,12 +166,50 @@ public class GoodsTestGUI extends JFrame{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		
+table.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				int row = table.getSelectedRow();
+				Vector<String> v = rowData.get(row);
+				String name = v.get(0);
+				int price = Integer.parseInt(v.get(1)); 
+				int num = Integer.parseInt(v.get(2));
+				
+				jta1.setText(name);
+				jta2.setText(price+"");
+				jta3.setText(num+"");
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 	}
 	
 	public static void main(String[] args) {
-		new GoodsTestGUI();
+		new GoodsTestGUI2_Update();
 	}
 
 }
