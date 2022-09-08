@@ -112,7 +112,6 @@ public class BookTest04 extends JFrame{
 			}
 		});
 		
-		
 		setSize(300,400);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
