@@ -57,7 +57,6 @@ public class BookTest04 extends JFrame{
 		}catch(Exception e) {
 			System.out.println("예외발생:"+e.getMessage());
 		}
-		
 	}
 	
 	public BookTest04() {
