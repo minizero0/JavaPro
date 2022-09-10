@@ -51,7 +51,6 @@ public class GoodsSaveTest extends JFrame{
 		add(jsp);
 		
 		
-		
 		JPanel jp1 = new JPanel();
 		jp1.setLayout(null);
 		
