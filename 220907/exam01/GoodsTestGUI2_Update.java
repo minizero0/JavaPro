@@ -269,7 +269,6 @@ public class GoodsTestGUI2_Update extends JFrame{
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
