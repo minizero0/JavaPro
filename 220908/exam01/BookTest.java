@@ -33,7 +33,6 @@ public class BookTest extends JFrame{
 		String sql = "select distinct publisher from book";
 		String produce = "hello";
 		
-		
 		try {
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
