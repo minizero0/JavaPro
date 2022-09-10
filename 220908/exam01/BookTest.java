@@ -59,7 +59,6 @@ public class BookTest extends JFrame{
 			System.out.println("예외발생:"+e.getMessage());
 		}
 		
-		
 		setSize(300,400);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
