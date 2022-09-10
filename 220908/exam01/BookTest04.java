@@ -75,7 +75,6 @@ public class BookTest04 extends JFrame{
 		jcb = new JComboBox<String>(vector);
 		add(jcb, BorderLayout.NORTH);
 		add(jsp, BorderLayout.CENTER);
-
 		
 		String sql = "select distinct publisher from book";
 		
