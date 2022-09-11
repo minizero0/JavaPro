@@ -57,7 +57,6 @@ public class GoodsSaveTest extends JFrame{
 		jlb1.setBounds(10, 20, 100, 40);
 		
 		jp1.add(jlb1);
-		
 		JLabel jlb2 = new JLabel("단가");
 		jlb2.setBounds(10, 60, 100, 40);
 		jp1.add(jlb2);
