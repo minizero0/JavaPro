@@ -49,7 +49,6 @@ public class Hoemwork01 extends JFrame{
 			stmt.close();
 			rs.close();
 			
-			
 		}catch(Exception e) {
 			System.out.println("예외발생:"+e.getMessage());
 		}
@@ -67,8 +66,6 @@ public class Hoemwork01 extends JFrame{
 		
 		table = new JTable(vector, colName);
 		JScrollPane jsp = new JScrollPane(table);
-		
-		
 		
 		JButton btn = new JButton("검색");
 		btn.addActionListener(new ActionListener() {
