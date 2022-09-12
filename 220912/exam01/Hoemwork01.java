@@ -45,6 +45,9 @@ public class Hoemwork01 extends JFrame{
 				v.add(rs.getInt(4)+"");
 				vector.add(v);
 			}
+			conn.close();
+			stmt.close();
+			rs.close();
 			
 			
 		}catch(Exception e) {
