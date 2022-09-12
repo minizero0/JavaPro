@@ -13,10 +13,9 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
-import TeamExam.HomeWork01;
 
 public class Hoemwork01 extends JFrame{
 	
@@ -74,8 +73,10 @@ public class Hoemwork01 extends JFrame{
 		
 		jp.add(jtf);
 		jp.add(btn);
+		table = new JTable(vector, colName);
+		JScrollPane jsp = new JScrollPane(table);
 		
-		add(table, BorderLayout.CENTER);
+		add(jsp, BorderLayout.CENTER);
 		add(jp, BorderLayout.SOUTH);
 		
 		btn.addActionListener(new ActionListener() {
@@ -84,11 +85,8 @@ public class Hoemwork01 extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				search();
 				table.updateUI();
-				
 			}
 		});
-		
-		table = new JTable(vector, colName);
 		
 		
 		setSize(300,400);
