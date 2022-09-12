@@ -88,13 +88,7 @@ public class Hoemwork01 extends JFrame{
 			}
 		});
 		
-		
-		
-		
 		table = new JTable(vector, colName);
-		
-		
-		
 		
 		
 		setSize(300,400);
