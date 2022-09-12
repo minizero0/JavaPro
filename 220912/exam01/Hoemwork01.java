@@ -65,7 +65,7 @@ public class Hoemwork01 extends JFrame{
 		colName.add("고객번호");
 		colName.add("도서번호");
 		colName.add("구매가격");
-		jtf = new JTextField();
+		jtf = new JTextField(5);
 		
 		
 		table = new JTable(vector, colName);
