@@ -43,6 +43,7 @@ public class Hoemwork01 extends JFrame{
 				v.add(rs.getInt(2)+"");
 				v.add(rs.getInt(3)+"");
 				v.add(rs.getInt(4)+"");
+				vector.add(v);
 			}
 			
 			
