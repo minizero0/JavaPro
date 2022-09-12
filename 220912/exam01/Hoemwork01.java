@@ -61,6 +61,10 @@ public class Hoemwork01 extends JFrame{
 		jp.setLayout(new FlowLayout());
 		vector = new Vector<>();
 		colName = new Vector<>();
+		colName.add("주문번호");
+		colName.add("고객번호");
+		colName.add("도서번호");
+		colName.add("구매가격");
 		jtf = new JTextField();
 		
 		
