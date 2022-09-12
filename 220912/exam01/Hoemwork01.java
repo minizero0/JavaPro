@@ -5,6 +5,10 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.ByteOrder;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -22,6 +26,25 @@ public class Hoemwork01 extends JFrame{
 	JTextField jtf;
 	
 	public void search() {
+		vector.clear();
+		int id = Integer.parseInt(jtf.getText()); 
+		String sql = "select * from orders where memberid = "+id+"";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String usr = "c##homework";
+			String pwd = "homework";
+			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				
+			}
+			
+			
+		}catch(Exception e) {
+			System.out.println("예외발생:"+e.getMessage());
+		}
 		
 	}
 	
