@@ -38,7 +38,11 @@ public class Hoemwork01 extends JFrame{
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
-				
+				Vector<String> v = new Vector<>();
+				v.add(rs.getInt(1)+"");
+				v.add(rs.getInt(2)+"");
+				v.add(rs.getInt(3)+"");
+				v.add(rs.getInt(4)+"");
 			}
 			
 			
