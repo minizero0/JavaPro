@@ -32,6 +32,7 @@ public class Team {
 				Date d = rs.getDate(4);
 				System.out.println("이름: " +a+ ", 급여: " + b + ", 주소: " + c + ", 입사일: " + d);
 			}
+			
 			conn.close();
 			stmt.close();
 			rs.close();
