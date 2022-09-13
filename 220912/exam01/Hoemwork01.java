@@ -58,6 +58,7 @@ public class Hoemwork01 extends JFrame{
 		vector.clear();
 		int id = Integer.parseInt(jtf.getText());
 		String sql = "select * from orders where memberid = "+id+"";
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
