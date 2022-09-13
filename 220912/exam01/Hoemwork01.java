@@ -96,7 +96,6 @@ public class Hoemwork01 extends JFrame{
 		colName.add("구매가격");
 		jtf = new JTextField(5);
 		
-		
 		table = new JTable(vector, colName);
 		JScrollPane jsp = new JScrollPane(table);
 		list();
