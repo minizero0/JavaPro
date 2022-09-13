@@ -108,7 +108,6 @@ public class Hoemwork01 extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				search();
 				table.updateUI();
-				
 			}
 		});
 		
