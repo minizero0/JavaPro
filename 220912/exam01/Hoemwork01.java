@@ -66,6 +66,7 @@ public class Hoemwork01 extends JFrame{
 			Connection conn = DriverManager.getConnection(url, usr, pwd);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
+			
 			while(rs.next()) {
 				Vector<String> v = new Vector<>();
 				v.add(rs.getInt(1)+"");
