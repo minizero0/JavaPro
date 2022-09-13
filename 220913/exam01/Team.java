@@ -23,8 +23,8 @@ public class Team {
 			
 			Connection conn = DriverManager.getConnection(url, usr, pwd);
 			Statement stmt = conn.createStatement();
-			
 			ResultSet rs = stmt.executeQuery(sql);
+			
 			while(rs.next()) {
 				String a = rs.getString(1);
 				int b = rs.getInt(2);
