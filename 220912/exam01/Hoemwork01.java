@@ -121,7 +121,6 @@ public class Hoemwork01 extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	
 	public static void main(String[] args) {
 		new Hoemwork01();
 	}
