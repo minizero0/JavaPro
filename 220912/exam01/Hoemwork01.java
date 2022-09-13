@@ -33,9 +33,11 @@ public class Hoemwork01 extends JFrame{
 			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
 			String usr = "c##homework";
 			String pwd = "homework";
+			
 			Connection conn = DriverManager.getConnection(url, usr, pwd);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
+			
 			while(rs.next()) {
 				Vector<String> v = new Vector<>();
 				v.add(rs.getInt(1)+"");
