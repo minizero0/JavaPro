@@ -16,6 +16,11 @@ public class Test1 {
 			String row = ename + "," + salary+","+addr+","+date;
 			System.out.println(row);
 		}
+		
+		ArrayList<String> list2 = dao.listDname();
+		for(String dname:list2) {
+			System.out.println(dname);
+		}
 	}
 
 }
