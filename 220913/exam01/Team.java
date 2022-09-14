@@ -1,6 +1,7 @@
 package exam01;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,7 +10,10 @@ import java.sql.Statement;
 import java.util.Scanner;
 import java.util.Vector;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -61,6 +65,8 @@ public class Team extends JFrame {
 	
 	public Team() {
 		setLayout(new BorderLayout());
+		JPanel jp = new JPanel();
+		jp.setLayout(new FlowLayout());
 		jtf = new JTextField(10);
 		vector = new Vector<>();
 		colName = new Vector<>();
@@ -68,14 +74,21 @@ public class Team extends JFrame {
 		colName.add("급여");
 		colName.add("주소");
 		colName.add("입사일");
+		JButton btn = new JButton("검색");
+		
+		btn()
 		
 		table = new JTable(vector, colName);
+		JScrollPane jsp = new JScrollPane(table);
 		
 		list();
 		table.updateUI();
-		add(table, BorderLayout.CENTER);
+		add(jsp, BorderLayout.CENTER);
 		add(jtf, BorderLayout.SOUTH);
 		
+		setSize(300,400);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	
