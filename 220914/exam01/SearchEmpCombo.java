@@ -21,19 +21,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class SearchEmp extends JFrame {
+public class SearchEmpCombo extends JFrame {
 	
 	JTable table;
 	Vector<Vector<String>> vector;
 	Vector<String> colName;
-	JTextField jtf;
+	JComboBox<String> jcb;
 	EmpDAO dao = new EmpDAO();
 	ArrayList<EmpVO> list;
 	
 	public void list() {
 		vector.clear();
-		String name = jtf.getText();
-//		String name = jcb.getSelectedItem().toString();
+		String name = jcb.getSelectedItem().toString();
 		list = dao.searchEmp(name);
 		for(EmpVO e: list) {
 			Vector<String> v = new Vector<>();
@@ -46,12 +45,11 @@ public class SearchEmp extends JFrame {
 		
 	}
 	
-	public SearchEmp() {
+	public SearchEmpCombo() {
 		String data[] = {"plan", "develop1", "develop2", "chongmu"};
 		setLayout(new BorderLayout());
-		JPanel jp = new JPanel();
 		jp.setLayout(new FlowLayout());
-		jtf = new JTextField(10);
+		jcb = new JComboBox<String>(data);
 		list = new ArrayList<>();
 		
 		vector = new Vector<>();
@@ -60,9 +58,8 @@ public class SearchEmp extends JFrame {
 		colName.add("급여");
 		colName.add("주소");
 		colName.add("입사일");
-		JButton btn = new JButton("검색");
 		
-		btn.addActionListener(new ActionListener() {
+		jcb.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -75,10 +72,8 @@ public class SearchEmp extends JFrame {
 		JScrollPane jsp = new JScrollPane(table);
 		
 		
-		jp.add(jtf);
-		jp.add(btn);
+		add(jcb, BorderLayout.NORTH);
 		add(jsp, BorderLayout.CENTER);
-		add(jp, BorderLayout.SOUTH);
 		
 		setSize(300,400);
 		setVisible(true);
