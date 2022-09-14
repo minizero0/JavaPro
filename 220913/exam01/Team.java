@@ -2,6 +2,8 @@ package exam01;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -76,15 +78,23 @@ public class Team extends JFrame {
 		colName.add("입사일");
 		JButton btn = new JButton("검색");
 		
-		btn()
+		btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				list();
+				table.updateUI();
+			}
+		});
 		
 		table = new JTable(vector, colName);
 		JScrollPane jsp = new JScrollPane(table);
 		
-		list();
-		table.updateUI();
+		
+		jp.add(jtf);
+		jp.add(btn);
 		add(jsp, BorderLayout.CENTER);
-		add(jtf, BorderLayout.SOUTH);
+		add(jp, BorderLayout.SOUTH);
 		
 		setSize(300,400);
 		setVisible(true);
