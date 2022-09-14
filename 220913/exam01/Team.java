@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.util.Vector;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -25,6 +26,7 @@ public class Team extends JFrame {
 	Vector<Vector<String>> vector;
 	Vector<String> colName;
 	JTextField jtf;
+	JComboBox<String> jcb;
 	
 	public void list() {
 		vector.clear();
@@ -66,10 +68,15 @@ public class Team extends JFrame {
 	}
 	
 	public Team() {
+		String data[] = {"plan", "develop1", "develop2", "chongmu"};
 		setLayout(new BorderLayout());
 		JPanel jp = new JPanel();
 		jp.setLayout(new FlowLayout());
 		jtf = new JTextField(10);
+		jcb = new JComboBox<String>(data);
+		
+		add(jcb, BorderLayout.NORTH);
+		
 		vector = new Vector<>();
 		colName = new Vector<>();
 		colName.add("이름");
