@@ -56,7 +56,6 @@ public class SearchDept extends JFrame {
 				v.add(a);
 				v.add(d+"");
 				vector.add(v);
-				System.out.println("이름: " +a+ ", 급여: " + b + ", 주소: " + c + ", 입사일: " + d);
 			}
 			
 			conn.close();
