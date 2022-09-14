@@ -20,7 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class SearchDept extends JFrame {
+public class SearchEmp extends JFrame {
 	
 	JTable table;
 	Vector<Vector<String>> vector;
@@ -67,7 +67,7 @@ public class SearchDept extends JFrame {
 		}
 	}
 	
-	public SearchDept() {
+	public SearchEmp() {
 		String data[] = {"plan", "develop1", "develop2", "chongmu"};
 		setLayout(new BorderLayout());
 		JPanel jp = new JPanel();

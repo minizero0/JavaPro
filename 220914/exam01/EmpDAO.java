@@ -21,9 +21,7 @@ public class EmpDAO {
 	 */
 	
 	public ArrayList<EmpVO> searchEmp(String dname) {
-		String sql = "select ename, salary, addr, hiredate"
-				+ "from dept d, emp e"
-				+ "where d.dno = e.dno and dname = '"+dname+"'";
+		String sql = "select ename, salary, addr, hiredate from emp e, dept d where e.dno = d.dno and dname = '"+dname+"'";
 		ArrayList<EmpVO> list = new ArrayList<>();
 		try {
 			

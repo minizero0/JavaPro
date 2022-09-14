@@ -119,6 +119,6 @@ public class Team extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new SearchDept();
+		new SearchEmp();
 	}
 }
