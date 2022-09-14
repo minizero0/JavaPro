@@ -30,14 +30,18 @@ public class SearchEmpCombo extends JFrame {
 	EmpDAO dao = new EmpDAO();
 	ArrayList<EmpVO> list;
 	ArrayList<String> listDname;
-	String data[];
+	Vector<String> v2;
+//	String data[];
 	
 	public void listD() {
 		listDname = dao.listDname();
-		data = new String[listDname.size()];
-		for (int i = 0; i < listDname.size(); i++) {
-			data[i] = listDname.get(i);
-		}
+//		data = new String[listDname.size()];
+//		for (int i = 0; i < listDname.size(); i++) {
+//			data[i] = listDname.get(i);
+//		}
+		v2 = new Vector<>();
+		for(String dname:listDname)
+			v2.add(dname);
 	}
 	
 	public void list() {
@@ -61,7 +65,7 @@ public class SearchEmpCombo extends JFrame {
 		list = new ArrayList<>();
 		listDname = new ArrayList<>();
 		listD();
-		jcb = new JComboBox<String>(data);
+		jcb = new JComboBox<String>(v2);
 		vector = new Vector<>();
 		colName = new Vector<>();
 		colName.add("이름");
