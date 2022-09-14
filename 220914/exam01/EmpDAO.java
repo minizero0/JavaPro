@@ -20,7 +20,7 @@ public class EmpDAO {
 	 * ArrayList에 담기는 자료형은 EmpVO로 한다.
 	 */
 	
-	public EmpDAO(String dname) {
+	public ArrayList<EmpVO> searchEmp(String dname) {
 		String sql = "select ename, salary, addr, hiredate"
 				+ "from dept d, emp e"
 				+ "where d.dno = e.dno and dname = '"+dname+"'";
@@ -34,6 +34,7 @@ public class EmpDAO {
 			Connection conn = DriverManager.getConnection(url,usr,pwd);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
+			
 			while(rs.next()) {
 				String ename = rs.getString(1);
 				int salary = rs.getInt(2);
@@ -42,9 +43,14 @@ public class EmpDAO {
 				list.add(new EmpVO(ename, salary, addr, date));
 			}
 			
+			conn.close();
+			stmt.close();
+			rs.close();
+			
 		}catch(Exception e) {
 			System.out.println("예외발생:"+e.getMessage());
 		}
+		return list;
 	}
 
 }
