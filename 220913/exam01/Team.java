@@ -31,7 +31,8 @@ public class Team extends JFrame {
 	public void list() {
 		vector.clear();
 		System.out.println("조회할 부서를 입력하세요.");
-		String name = jtf.getText();
+//		String name = jtf.getText();
+		String name = jcb.getSelectedItem().toString();
 		String sql = "select ename, salary, addr, hiredate from emp e, dept d where e.dno = d.dno and dname = '"+name+"'";
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -75,8 +76,6 @@ public class Team extends JFrame {
 		jtf = new JTextField(10);
 		jcb = new JComboBox<String>(data);
 		
-		add(jcb, BorderLayout.NORTH);
-		
 		vector = new Vector<>();
 		colName = new Vector<>();
 		colName.add("이름");
@@ -100,6 +99,7 @@ public class Team extends JFrame {
 		
 		jp.add(jtf);
 		jp.add(btn);
+		add(jcb, BorderLayout.NORTH);
 		add(jsp, BorderLayout.CENTER);
 		add(jp, BorderLayout.SOUTH);
 		
