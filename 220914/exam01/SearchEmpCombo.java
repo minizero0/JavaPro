@@ -48,7 +48,6 @@ public class SearchEmpCombo extends JFrame {
 	public SearchEmpCombo() {
 		String data[] = {"plan", "develop1", "develop2", "chongmu"};
 		setLayout(new BorderLayout());
-		jp.setLayout(new FlowLayout());
 		jcb = new JComboBox<String>(data);
 		list = new ArrayList<>();
 		
