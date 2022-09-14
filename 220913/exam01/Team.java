@@ -93,6 +93,15 @@ public class Team extends JFrame {
 			}
 		});
 		
+		jcb.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				list();
+				table.updateUI();
+			}
+		});
+		
 		table = new JTable(vector, colName);
 		JScrollPane jsp = new JScrollPane(table);
 		
