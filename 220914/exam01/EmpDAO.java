@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class EmpDAO {
-	ArrayList<EmpVO> list;
+	
 	
 	/*
 	 * select ename, salary, addr, hiredate
@@ -24,6 +24,7 @@ public class EmpDAO {
 		String sql = "select ename, salary, addr, hiredate"
 				+ "from dept d, emp e"
 				+ "where d.dno = e.dno and dname = '"+dname+"'";
+		ArrayList<EmpVO> list = new ArrayList<>();
 		try {
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -40,6 +41,7 @@ public class EmpDAO {
 				int salary = rs.getInt(2);
 				String addr = rs.getString(3);
 				Date date = rs.getDate(4);
+				
 				list.add(new EmpVO(ename, salary, addr, date));
 			}
 			
