@@ -38,14 +38,10 @@ public class SearchEmp extends JFrame {
 		list = dao.searchEmp(name);
 		for(EmpVO e: list) {
 			Vector<String> v = new Vector<>();
-			String ename = e.getEname();
-			int salary = e.getSalary();
-			String addr = e.getAddr();
-			Date date = e.getHiredate();
-			v.add(ename);
-			v.add(salary+"");
-			v.add(addr);
-			v.add(date+"");
+			v.add(e.getEname());
+			v.add(e.getSalary()+"");
+			v.add(e.getAddr());
+			v.add(e.getHiredate()+"");
 			vector.add(v);
 		}
 		
