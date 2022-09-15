@@ -37,9 +37,11 @@ public class FrameTest extends JFrame{
 		ImageIcon jacket = new ImageIcon("jacket.jpeg");
 		JLabel jlb1 = new JLabel("<html><body>자켓<br/>가격 : 50000</body></html>");
 		JButton btn1 = new JButton(jacket);
-		center_1.add(btn1, BorderLayout.CENTER);
+		JScrollPane jsp2 = new JScrollPane(btn1);
+		center_1.add(jsp2, BorderLayout.CENTER);
 		center_1.add(jlb1, BorderLayout.SOUTH);
 		center.add(center_1);
+		
 		
 		JPanel center_2 = new JPanel();
 		center_2.setLayout(new BorderLayout());
@@ -94,6 +96,7 @@ public class FrameTest extends JFrame{
 		String data[] = {"의류", "가전제품", "도서"};
 		jcb = new JComboBox<String>(data);
 		jtf = new JTextField(10);
+		
 		
 		jp.add(jcb);
 		jp.add(jtf);
