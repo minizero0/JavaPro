@@ -86,7 +86,6 @@ public class FrameTest extends JFrame{
 		JScrollPane jsp = new JScrollPane(center);
 		add(center, BorderLayout.CENTER);
 		
-		
 		btn_search = new JButton("검색");
 		btn_write = new JButton("글쓰기");
 		btn_bag = new JButton("장바구니");
