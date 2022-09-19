@@ -21,11 +21,6 @@ public class FrameTest extends JFrame{
 	JComboBox<String> jcb;
 	JTextField jtf;
 	
-	public void signUp() {
-		String sql;
-		
-	}
-	
 	
 	public FrameTest() {
 		setLayout(new BorderLayout(30,30));
@@ -103,8 +98,7 @@ public class FrameTest extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				signUp();
-				
+				new signup();
 			}
 		});
 		
