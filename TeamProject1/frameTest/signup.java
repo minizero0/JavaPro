@@ -22,7 +22,7 @@ public class signup extends JFrame{
 		String usrpwd = jtf_usrpwd.getText();
 		String name = jtf_name.getText();
 		String phone = jtf_phone.getText();
-		String addr = jtf_phone.getText();
+		String addr = jtf_addr.getText();
 		String sql = "insert into users values('"+usrid+"', '"+usrpwd+"', '"+name+"', '"+phone+"', '"+addr+"')";
 		
 		try {
@@ -81,7 +81,7 @@ public class signup extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				info();
 				
 			}
 		});
@@ -89,11 +89,6 @@ public class signup extends JFrame{
 		
 		setSize(300,400);
 		setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		new signup();
-
 	}
 
 }
