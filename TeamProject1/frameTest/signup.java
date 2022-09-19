@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.swing.JButton;
@@ -15,7 +16,33 @@ import javax.swing.JTextField;
 
 public class signup extends JFrame{
 	JTextField jtf_usrid, jtf_usrpwd, jtf_name, jtf_phone, jtf_addr;
-	JButton btn_signUp;
+	JButton btn_signUp, btn_confirm;
+	
+	public void confirm() {
+		String usrid = jtf_usrid.getText();
+		String sql = "select userid from users";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String usr = "c##madang";
+			String pwd = "madang";
+			
+			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				if(rs.getString(1).equals(usrid))
+					JOptionPane.showMessageDialog(null, "이미사용중인 아이디입니다. 다른 아이디를 입력해주세요");
+				else
+					JOptionPane.showMessageDialog(null, "사용가능한 아이디입니다.");
+			}
+			
+		}catch (Exception e) {
+			System.out.println("예외발생:"+e.getMessage());
+		}
+	}
 	
 	public void info() {
 		String usrid = jtf_usrid.getText();
@@ -77,11 +104,22 @@ public class signup extends JFrame{
 		btn_signUp = new JButton("회원가입");
 		add(btn_signUp);
 		
+		btn_confirm = new JButton("아이디 중복확인");
+		add(btn_confirm);
+		
 		btn_signUp.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				info();
+			}
+		});
+		
+		btn_confirm.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				confirm();
 				
 			}
 		});

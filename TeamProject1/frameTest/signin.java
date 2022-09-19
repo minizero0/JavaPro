@@ -40,6 +40,8 @@ public class signin extends JFrame{
 				System.out.println(usrpwd);
 				if(rs.getString(1).equals(usrid) && rs.getString(2).equals(usrpwd)) {
 					JOptionPane.showMessageDialog(null, "로그인에 성공했습니다"+usrid+"님");
+					dispose();	// system.exit()는 모든 프레임 즉,프로그램을 종료시킨다 
+								// 반면 dispose()는 현재 프레임만 종료시킨다.
 				}
 				else
 					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호가 옳바르지 않습니다.");
@@ -75,7 +77,6 @@ public class signin extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				login();
-				
 			}
 		});
 		
