@@ -22,6 +22,7 @@ public class FrameTest extends JFrame{
 	JTextField jtf;
 	
 	public void signUp() {
+		String sql;
 		
 	}
 	
@@ -102,7 +103,7 @@ public class FrameTest extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				singUp();
+				signUp();
 				
 			}
 		});
