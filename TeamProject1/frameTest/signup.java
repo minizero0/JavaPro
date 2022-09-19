@@ -1,6 +1,8 @@
 package frameTest;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +11,23 @@ import javax.swing.JTextField;
 
 public class signup extends JFrame{
 	JTextField jtf_usrid, jtf_usrpwd, jtf_name, jtf_phone, jtf_addr;
-	JButton btn_singUp;
+	JButton btn_signUp;
+	
+	public void info() {
+		String usrid = jtf_usrid.getText();
+		String usrpwd = jtf_usrpwd.getText();
+		String name = jtf_name.getText();
+		String phone = jtf_phone.getText();
+		String addr = jtf_phone.getText();
+		String sql = "insert into users values('"+usrid+"', '"+usrpwd+"', '"+name+"', '"+phone+"', '"+addr+"')";
+		try {
+			
+		}catch (Exception e) {
+			System.out.println("예외발생:" + e.getMessage());
+		}
+		
+		
+	}
 	
 	public signup() {
 		setLayout(new GridLayout(6,2));
@@ -37,12 +55,21 @@ public class signup extends JFrame{
 		add(jlb5);
 		add(jtf_addr);
 		
-		btn_singUp = new JButton("회원가입");
-		add(btn_singUp);
+		btn_signUp = new JButton("회원가입");
+		add(btn_signUp);
+		
+		btn_signUp.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		
 		
 		setSize(300,400);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {
