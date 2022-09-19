@@ -3,10 +3,14 @@ package frameTest;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class signup extends JFrame{
@@ -20,8 +24,23 @@ public class signup extends JFrame{
 		String phone = jtf_phone.getText();
 		String addr = jtf_phone.getText();
 		String sql = "insert into users values('"+usrid+"', '"+usrpwd+"', '"+name+"', '"+phone+"', '"+addr+"')";
+		
 		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
+			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String usr = "c##madang";
+			String pwd = "madang";
+			
+			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Statement stmt = conn.createStatement();
+			
+			int re = stmt.executeUpdate(sql);
+			if(re > 0) {
+				JOptionPane.showMessageDialog(null, "가입을 환영합니다"+name+"님!");
+			}
+			stmt.close();
+			conn.close();
 		}catch (Exception e) {
 			System.out.println("예외발생:" + e.getMessage());
 		}
