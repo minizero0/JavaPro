@@ -3,6 +3,8 @@ package frameTest;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +20,10 @@ public class FrameTest extends JFrame{
 	JButton btn_search, btn_write, btn_bag, btn_signUp, btn_signIn;
 	JComboBox<String> jcb;
 	JTextField jtf;
+	
+	public void signUp() {
+		
+	}
 	
 	
 	public FrameTest() {
@@ -91,6 +97,15 @@ public class FrameTest extends JFrame{
 		btn_bag = new JButton("장바구니");
 		btn_signUp = new JButton("회원가입");
 		btn_signIn = new JButton("로그인");
+		
+		btn_signUp.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				singUp();
+				
+			}
+		});
 		
 		String data[] = {"의류", "가전제품", "도서"};
 		jcb = new JComboBox<String>(data);
