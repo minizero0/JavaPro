@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -50,6 +51,9 @@ public class signup extends JFrame{
 		String name = jtf_name.getText();
 		String phone = jtf_phone.getText();
 		String addr = jtf_addr.getText();
+		String regex = "^[a-z0-9]*$";			//비밀번호 적합성 판단 소문자 숫자 만 사용가능.
+		System.out.println(Pattern.matches(regex, usrpwd));
+		
 		String sql = "insert into users values('"+usrid+"', '"+usrpwd+"', '"+name+"', '"+phone+"', '"+addr+"')";
 		
 		try {
