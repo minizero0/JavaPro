@@ -24,7 +24,7 @@ public class signup extends JFrame{
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 			String usr = "c##madang";
 			String pwd = "madang";
 			
@@ -55,7 +55,7 @@ public class signup extends JFrame{
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
+			String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 			String usr = "c##madang";
 			String pwd = "madang";
 			
