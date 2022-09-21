@@ -31,7 +31,7 @@ public class exam01 extends JFrame{
 			
 			int re =pstmt.executeUpdate();
 			if (re == 1) {
-				JOptionPane.showConfirmDialog(null, "삽입성공!");
+				JOptionPane.showMessageDialog(null, "삽입성공!");
 			}
 			conn.close();
 			pstmt.close();
