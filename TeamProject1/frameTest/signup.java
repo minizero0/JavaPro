@@ -79,7 +79,7 @@ public class signup extends JFrame{
 	}
 	
 	public signup() {
-		setLayout(new GridLayout(6,2));
+		setLayout(new GridLayout(7,2));
 		
 		JLabel jlb1 = new JLabel("아이디:");
 		JLabel jlb2 = new JLabel("비밀번호:");
@@ -140,7 +140,6 @@ public class signup extends JFrame{
 					JOptionPane.showMessageDialog(null, "확인되었습니다.");
 				else
 					JOptionPane.showMessageDialog(null, "적합하지 않습니다. 소문자와 숫자를 조합해서 만들어주세요");
-				
 			}
 		});
 		
