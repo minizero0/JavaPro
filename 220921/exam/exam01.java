@@ -5,7 +5,15 @@ import javax.swing.JFrame;
 public class exam01 extends JFrame{
 	
 	public void book_insert() {
-		String sql = 
+		String sql = "insert into book values(?,?,?,?)";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url 
+			
+		}catch(Exception e) {
+			System.out.println("예외발생"+ e.getMessage());
+		}
 		
 	}
 	
