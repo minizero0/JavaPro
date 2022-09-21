@@ -110,6 +110,15 @@ public class FrameTest extends JFrame{
 			}
 		});
 		
+		btn_write.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new Board_Write();
+				
+			}
+		});
+		
 		String data[] = {"의류", "가전제품", "도서"};
 		jcb = new JComboBox<String>(data);
 		jtf = new JTextField(10);
