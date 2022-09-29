@@ -12,7 +12,6 @@ public class exam01 extends JFrame{
 	
 	int bookid, price;
 	String bookname, publisher;
-	
 	public void book_insert() {
 		String sql = "insert into book values(?,?,?,?)";
 		try {
