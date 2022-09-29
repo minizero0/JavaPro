@@ -15,7 +15,6 @@ public class exam01 extends JFrame{
 	
 	public void book_insert() {
 		String sql = "insert into book values(?,?,?,?)";
-		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";

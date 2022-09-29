@@ -19,6 +19,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="library/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/DoitCoding_Project1/library/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

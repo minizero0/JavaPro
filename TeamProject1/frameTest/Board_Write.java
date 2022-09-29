@@ -18,14 +18,14 @@ public class Board_Write extends JFrame{
 	
 	public void write() {
 
-		String sql = "insert into board_test values(boardid.nextval,?,?,?,?)";
+		String sql = "insert into product values(seq_proid.nextval,?,?,?,?,?,?,?)";
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@172.30.1.3:1521:XE";
-			String usr = "c##madang";
-			String pwd = "madang";
 			
-			Connection conn = DriverManager.getConnection(url, usr, pwd);
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@192.168.0.120:1521:XE", 
+					"c##project1", "project1");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, cate);
